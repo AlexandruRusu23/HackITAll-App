@@ -5,6 +5,8 @@ import ro.hackitall.foodwaste.api.ApiClient
 import ro.hackitall.foodwaste.dagger.modules.AppModule
 import ro.hackitall.foodwaste.home.injection.HomeComponent
 import ro.hackitall.foodwaste.home.injection.HomeModule
+import ro.hackitall.foodwaste.home.popup.injection.PopupComponent
+import ro.hackitall.foodwaste.home.popup.injection.PopupModule
 import ro.hackitall.foodwaste.splash.SplashActivity
 import javax.inject.Singleton
 
@@ -18,4 +20,5 @@ import javax.inject.Singleton
 interface AppComponent {
     fun inject(splashActivity: SplashActivity)
     fun plus(homeModule: HomeModule) : HomeComponent
+    fun plus(popupModule: PopupModule) : PopupComponent
 }
