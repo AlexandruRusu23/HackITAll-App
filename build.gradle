@@ -12,7 +12,7 @@ ext{
     retrofitConvertorVersion = '2.3.0'
     loggingInterceptorVersion ='3.9.0'
     authDigestVersion ='1.16'
-    mapPlayServices = '11.8.0'
+    mapPlayServices = '12.0.0'
     daggerVersion = '2.13'
     retrofitRXVersion = '2.3.0'
     rxjavaVersion = '2.0.1'
