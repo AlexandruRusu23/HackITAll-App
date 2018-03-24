@@ -1,8 +1,8 @@
 package ro.hackitall.foodwaste.splash
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 import ro.hackitall.foodwaste.R
 import ro.hackitall.foodwaste.application.DoNotWaste
