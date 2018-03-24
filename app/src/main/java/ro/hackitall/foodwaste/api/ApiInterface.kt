@@ -1,11 +1,10 @@
 package ro.hackitall.foodwaste.api
 
-import com.google.gson.JsonObject
 import dagger.Module
 import io.reactivex.Observable
-import retrofit2.Call
 import retrofit2.http.*
-import ro.hackitall.foodwaste.home.model.User
+import ro.hackitall.foodwaste.home.mvp.models.GetProductsResponse
+import ro.hackitall.foodwaste.home.mvp.models.StoreModel
 
 /**
  * Created by Emilian on 09/02/2018.
@@ -19,7 +18,10 @@ interface ApiInterface {
     }
 
     //@Headers(AUTHORIZATION)
-    @GET("User/GetAll")
-    fun getUsers(): Observable<User>
+    @GET("StoreModel/GetAll")
+    fun getUsers(): Observable<StoreModel>
+
+    @GET("Product/GetAll")
+    fun getProducts() : Observable<GetProductsResponse>
 
 }

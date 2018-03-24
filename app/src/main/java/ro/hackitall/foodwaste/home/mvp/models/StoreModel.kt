@@ -1,4 +1,4 @@
-package ro.hackitall.foodwaste.home.model
+package ro.hackitall.foodwaste.home.mvp.models
 
 import android.support.annotation.Nullable
 import com.google.gson.annotations.SerializedName
@@ -9,26 +9,22 @@ import java.io.Serializable
  *
  */
 
-data class User(
+data class StoreModel(
 
         @SerializedName("userId")
         @Nullable
-        val userId : String,
+        val storeId : String,
 
         @SerializedName("username")
         @Nullable
         val username : String,
 
-        @SerializedName("password")
+        @SerializedName("latitude")
         @Nullable
-        val password : String,
+        val latitude : Double,
 
-        @SerializedName("email")
+        @SerializedName("longitude")
         @Nullable
-        val email : String,
-
-        @SerializedName("role")
-        @Nullable
-        val role : String
+        val longitude : Double
 
 ) :Serializable
