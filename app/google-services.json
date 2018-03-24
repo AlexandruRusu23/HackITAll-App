@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "40678364122",
+    "firebase_url": "https://wastefood-9992b.firebaseio.com",
+    "project_id": "wastefood-9992b",
+    "storage_bucket": "wastefood-9992b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40678364122:android:6e2a2b2a9ecd4bcb",
+        "android_client_info": {
+          "package_name": "ro.hackitall.foodwaste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40678364122-2a2te7ajgdqguom5d0f4plefl7h3qun8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2dKfxNl0rVVEmZ2DwYNlUyZkYUF1YF94"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
