@@ -1,6 +1,7 @@
 package ro.hackitall.foodwaste.home.adapters
 
 import android.content.Context
+import android.os.Bundle
 import android.support.design.widget.BottomSheetDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
@@ -39,6 +40,15 @@ class ProductAdapter(val context: AppCompatActivity, val products: Array<Product
         Picasso.with(context).load(products[position].picture).into(holder?.productImage)
         holder?.itemView?.setOnClickListener{
             val dialog = PopupFragment()
+            val args = Bundle()
+            args.putString("picture", products[position].picture)
+            args.putString("name", products[position].name)
+            args.putString("store", products[position].store.username)
+            args.putString("description", products[position].description)
+            args.putDouble("latitude", products[position].store.latitude)
+            args.putDouble("longitude", products[position].store.longitude)
+            args.putString("price", products[position].price)
+            dialog.arguments = args
             dialog.show(context.supportFragmentManager,null)
         }
     }

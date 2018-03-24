@@ -1,6 +1,8 @@
 package ro.hackitall.foodwaste.home.popup.mvp
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -8,6 +10,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.product_detail.*
 import ro.hackitall.foodwaste.R
 import javax.inject.Inject
 
@@ -17,14 +20,14 @@ import javax.inject.Inject
  */
 class PopupPresenter : PopupContract.PopupPresenter, OnMapReadyCallback {
 
-    val popupView : PopupContract.PopupView
+    val popupView: PopupContract.PopupView
 
-    val context : Context
+    val context: Context
 
     private var mMap: GoogleMap? = null
 
-    @Inject constructor(popupView : PopupContract.PopupView,
-                        context: Context){
+    @Inject constructor(popupView: PopupContract.PopupView,
+                        context: Context) {
         this.popupView = popupView
         this.context = context
     }
@@ -37,13 +40,16 @@ class PopupPresenter : PopupContract.PopupPresenter, OnMapReadyCallback {
 
         //mMap?.setMapStyle(MapStyleOptions.loadRawResourceStyle(context, R.raw.style))
 
-        mMap?.addMarker(MarkerOptions().position(LatLng(44.479588, 26.085433)))
-        mMap?.animateCamera(CameraUpdateFactory.newLatLng(LatLng(44.479588, 26.085433)))
-
-
-
+        popupView.setStoreLocation()
         Log.d("PopupPresenter", "Map Ready")
+    }
 
+    override fun setStoreLocation(latitude: Double, longitude: Double) {
+        mMap?.addMarker(MarkerOptions().position(LatLng(latitude, longitude)))
+        mMap?.animateCamera(CameraUpdateFactory.newLatLng(LatLng(latitude, longitude)))
+        mMap?.setOnMapClickListener {
+            popupView.openGoogleMaps()
+        }
     }
 
 }

@@ -6,8 +6,14 @@ package ro.hackitall.foodwaste.home.popup.mvp
  */
 interface PopupContract {
 
-    interface PopupView {}
+    interface PopupView {
+        fun initializeView()
+        fun setStoreLocation()
+        fun openGoogleMaps()
+    }
 
-    interface PopupPresenter {}
+    interface PopupPresenter {
+        fun setStoreLocation(latitude : Double, longitude : Double)
+    }
 
 }
