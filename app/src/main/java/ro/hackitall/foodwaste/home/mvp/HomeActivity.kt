@@ -8,6 +8,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import ro.hackitall.foodwaste.R
 import ro.hackitall.foodwaste.application.DoNotWaste
+import ro.hackitall.foodwaste.data.Dialogs
 import ro.hackitall.foodwaste.home.adapters.ProductAdapter
 import ro.hackitall.foodwaste.home.injection.HomeModule
 import ro.hackitall.foodwaste.home.mvp.models.ProductModel
@@ -26,15 +27,18 @@ class HomeActivity : AppCompatActivity(), HomeContract.HomeView {
 
         productRecycler.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
+        Dialogs.showLoadingDialog(this, R.string.get_products)
         homePresenter.getProducts()
     }
 
     override fun onGetProductsSuccess(products: Array<ProductModel>) {
         val productsAdapter = ProductAdapter(this, products)
         productRecycler.adapter = productsAdapter
+        Dialogs.dismissLoadingDialog()
     }
 
     override fun onGetProductsFailure() {
+        Dialogs.dismissLoadingDialog()
         Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
     }
 

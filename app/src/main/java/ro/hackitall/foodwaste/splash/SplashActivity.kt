@@ -2,6 +2,7 @@ package ro.hackitall.foodwaste.splash
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 import ro.hackitall.foodwaste.R
@@ -17,9 +18,16 @@ class SplashActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_splash)
 
-        splash_button.setOnClickListener{
-            finish()
-            startActivity(Intent(this, HomeActivity::class.java))
-        }
+        Handler().postDelayed(
+                Runnable {
+                    changeActivity()
+                }, 1500)
+
     }
+
+    fun changeActivity(){
+        startActivity(Intent(this,HomeActivity::class.java))
+        finish()
+    }
+
 }
