@@ -37,7 +37,7 @@ class ProductAdapter(val context: AppCompatActivity, val products: Array<Product
         holder?.productName?.text = products[position].name
         holder?.productShop?.text = products[position].store.username
         holder?.productPrice?.text = products[position].price + " RON";
-        Picasso.with(context).load(products[position].picture).into(holder?.productImage)
+        Picasso.with(context).load(products[position].picture).placeholder(R.drawable.cartofi).into(holder?.productImage)
         holder?.itemView?.setOnClickListener{
             val dialog = PopupFragment()
             val args = Bundle()

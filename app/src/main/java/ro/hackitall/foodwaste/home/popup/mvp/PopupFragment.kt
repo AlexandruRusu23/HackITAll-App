@@ -51,7 +51,7 @@ class PopupFragment : BottomSheetDialogFragment(), PopupContract.PopupView {
     }
 
     override fun initializeView() {
-        Picasso.with(activity).load(arguments?.getString("picture")).into(productImage)
+        Picasso.with(activity).load(arguments?.getString("picture")).placeholder(R.drawable.cartofi).into(productImage)
         productName.text = arguments?.getString("name")
         productDescription.text = arguments?.getString("description")
         productShop.text = arguments?.getString("store")
