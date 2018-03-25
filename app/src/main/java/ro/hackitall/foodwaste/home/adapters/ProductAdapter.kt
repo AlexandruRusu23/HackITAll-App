@@ -5,16 +5,19 @@ import android.os.Bundle
 import android.support.design.widget.BottomSheetDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
 import ro.hackitall.foodwaste.R
 import ro.hackitall.foodwaste.home.mvp.models.ProductModel
 import ro.hackitall.foodwaste.home.popup.mvp.PopupFragment
+import java.util.*
 
 /**
  * Created by Emilian on 3/24/2018.
@@ -37,7 +40,11 @@ class ProductAdapter(val context: AppCompatActivity, val products: Array<Product
         holder?.productName?.text = products[position].name
         holder?.productShop?.text = products[position].store.username
         holder?.productPrice?.text = products[position].price + " RON";
-        Picasso.with(context).load(products[position].picture).placeholder(R.drawable.cartofi).into(holder?.productImage)
+
+        if (holder != null) {
+            Glide.with(context).load(Base64.decode(products[position].picture, Base64.DEFAULT)).into(holder.productImage!!)
+        }
+
         holder?.itemView?.setOnClickListener{
             val dialog = PopupFragment()
             val args = Bundle()

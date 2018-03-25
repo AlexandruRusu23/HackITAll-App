@@ -4,9 +4,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.BottomSheetDialogFragment
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import com.google.android.gms.maps.MapsInitializer
 import com.squareup.picasso.Picasso
@@ -51,7 +53,8 @@ class PopupFragment : BottomSheetDialogFragment(), PopupContract.PopupView {
     }
 
     override fun initializeView() {
-        Picasso.with(activity).load(arguments?.getString("picture")).placeholder(R.drawable.cartofi).into(productImage)
+        //Picasso.with(activity).load(arguments?.getByteArray("picture")).placeholder(R.drawable.cartofi).into(productImage)
+        Glide.with(activity!!).load(Base64.decode(arguments?.getString("picture"), Base64.DEFAULT)).into(productImage!!)
         productName.text = arguments?.getString("name")
         productDescription.text = arguments?.getString("description")
         productShop.text = arguments?.getString("store")

@@ -38,6 +38,7 @@ class HomeActivity : AppCompatActivity(), HomeContract.HomeView {
     }
 
     override fun onGetProductsFailure() {
+        Dialogs.dismissLoadingDialog()
         Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show()
     }
 
