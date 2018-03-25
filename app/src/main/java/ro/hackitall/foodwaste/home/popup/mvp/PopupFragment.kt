@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import com.google.android.gms.maps.MapsInitializer
-import com.squareup.picasso.Picasso
 import ro.hackitall.foodwaste.R
 import ro.hackitall.foodwaste.application.DoNotWaste
 import ro.hackitall.foodwaste.home.popup.injection.PopupModule
@@ -49,7 +48,7 @@ class PopupFragment : BottomSheetDialogFragment(), PopupContract.PopupView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mapView?.onCreate(savedInstanceState)
-        setStyle(BottomSheetDialogFragment.STYLE_NO_FRAME, R.style.OrderBottomSheetDialogTheme)
+        setStyle(BottomSheetDialogFragment.STYLE_NO_FRAME, R.style.BottomSheetDialogTheme)
     }
 
     override fun initializeView() {
